@@ -1,47 +1,57 @@
 // The data contains several other fields, but for the purpose of this demo
 // we're extracting just what's considered relevant for now.
 
-export type Label = {
-	Label: string;
+// Data source types:
+// These types represent the data as they're present in the feed
+export type SourceLabel = {
+	label: string;
 };
 
-export type Artist = Label;
+export type SourceArtist = SourceLabel;
 
-export type ImageAttributes = {
-	Height: number;
+export type SourceImageAttributes = {
+	height: number;
 };
+
+export type SourceImage = {
+	attributes: SourceImageAttributes;
+} & SourceLabel;
+
+export type SourceName = SourceLabel;
+
+export type SourcePrice = SourceLabel;
+
+export type SourceReleaseDateAttributes = SourceLabel;
+
+export type SourceReleaseDate = {
+	attributes: SourceReleaseDateAttributes;
+};
+
+export type SourceRights = SourceLabel;
+
+export type SourceTitle = SourceLabel;
+
+export type SourceEntry = {
+	'im:artist': SourceArtist;
+	'im:image': SourceImage[];
+	'im:name': SourceName;
+	'im:price': SourcePrice;
+	rights: SourceRights;
+	title: SourceTitle;
+};
+
+// Display types:
+// These types represent the data as it's displayed - ie: simplified.
 
 export type Image = {
-	Attributes: ImageAttributes;
-} & Label;
-
-export type Name = Label;
-
-export type PriceAttributes = {
-	Amount: number;
-	Currency: string;
+	Url?: string;
+	Height?: number;
 };
 
-export type Price = {
-	Attributes: PriceAttributes;
-} & Label;
-
-export type ReleaseDateAttributes = Label;
-
-export type ReleaseDate = {
-	Attributes: ReleaseDateAttributes;
-};
-
-export type Rights = Label;
-
-export type Entry = {
-	Artist: Artist;
-	Image: Image[];
-	Name: Name;
-	Price: Price;
-	Rights: Rights;
-};
-
-export type Data = {
-	Entries: Entry[];
+export type Album = {
+	Artist?: string;
+	Images: Image[];
+	Name?: string;
+	Price?: string;
+	Rights?: string;
 };

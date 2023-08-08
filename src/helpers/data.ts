@@ -1,19 +1,23 @@
-import { Data, Entry } from '@src/@types/data';
+import { Album, Image, SourceEntry, SourceImage } from '@src/@types/data';
 
-export function parseData(entries: any): Data {
+export function parseData(entries: SourceEntry[]): Album[] {
 	if (!entries) throw 'Feed is empty';
 
-	const parsedEntries: Entry[] = entries.map((e: any) => {
-		return {
-			Entry: {
-				Artist: e['im:artist'],
-				Image: e['im:image'],
-				Name: e['im:name'],
-				Price: e['im:price'],
-				Rights: e['rights'],
-			},
-		};
-	});
+	return entries.map((e: SourceEntry) => {
+		const parsedEntry = {
+			Artist: e['im:artist'].label ?? undefined,
+			Images: e['im:image'].map((i: SourceImage) => {
+				return {
+					Url: i.label ?? undefined,
+					Height: i.attributes.height ?? undefined,
+				} as Image;
+			}),
+			Name: e['im:name'].label ?? undefined,
+			Price: e['im:price'].label ?? undefined,
+			Rights: e.rights.label ?? undefined,
+			Title: e.title.label ?? undefined,
+		} as unknown;
 
-	return { Entries: parsedEntries };
+		return parsedEntry;
+	}) as Album[];
 }
