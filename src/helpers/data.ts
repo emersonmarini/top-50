@@ -5,6 +5,7 @@ export function parseData(entries: SourceEntry[]): Album[] {
 
 	return entries.map((e: SourceEntry) => {
 		const parsedEntry = {
+			Id: e.id.attributes['im:id'] ?? undefined,
 			Artist: e['im:artist'].label ?? undefined,
 			Images: e['im:image'].map((i: SourceImage) => {
 				return {

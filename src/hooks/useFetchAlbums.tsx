@@ -3,12 +3,12 @@ import { useEffect, useState } from 'react';
 
 import { parseData } from '@helpers/data';
 
-import { SourceEntry } from '@src/@types/data';
+import { Album } from '@src/@types/data';
 
 const useFetchAlbums = (): {
 	loading: boolean;
 	error: string | null;
-	data: SourceEntry[];
+	data: Album[];
 } => {
 	const [loading, setLoading] = useState<boolean>(false);
 	const [data, setData] = useState<any>(null);

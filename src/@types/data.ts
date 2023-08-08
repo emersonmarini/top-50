@@ -7,6 +7,14 @@ export type SourceLabel = {
 	label: string;
 };
 
+export type SourceIdAttributes = {
+	'im:id': number;
+};
+
+export type SourceId = {
+	attributes: SourceIdAttributes;
+};
+
 export type SourceArtist = SourceLabel;
 
 export type SourceImageAttributes = {
@@ -32,6 +40,7 @@ export type SourceRights = SourceLabel;
 export type SourceTitle = SourceLabel;
 
 export type SourceEntry = {
+	id: SourceId;
 	'im:artist': SourceArtist;
 	'im:image': SourceImage[];
 	'im:name': SourceName;
@@ -49,9 +58,11 @@ export type Image = {
 };
 
 export type Album = {
+	Id?: number;
 	Artist?: string;
 	Images: Image[];
 	Name?: string;
 	Price?: string;
 	Rights?: string;
+	Title?: string;
 };
