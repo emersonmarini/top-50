@@ -1,0 +1,21 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+	"files.trimTrailingWhitespace": true,
+	"editor.insertSpaces": false,
+	"editor.detectIndentation": false,
+	"editor.formatOnSave": true,
+	"cSpell.words": [
+		"color",
+		"formatjs",
+		"stylelint"
+	],
+	"eslint.enable": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	},
+	"prettier.jsxSingleQuote": true,
+	"prettier.singleQuote": true,
+	"px-to-rem.px-per-rem": 16,
+	"typescript.tsdk": "node_modules\\typescript\\lib",
+	"editor.defaultFormatter": "esbenp.prettier-vscode"
+}

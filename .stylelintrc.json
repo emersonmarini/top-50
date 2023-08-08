@@ -1,0 +1,26 @@
+{
+	"extends": ["stylelint-prettier/recommended"],
+	"plugins": ["stylelint-prettier"],
+	"defaultSeverity": "error",
+	"customSyntax": "postcss-less",
+	"rules": {
+		"prettier/prettier": [
+			true,
+			{
+				"endOfLine": "auto",
+				"parser": "less",
+				"useTabs": true
+			}
+		],
+		"declaration-property-unit-allowed-list": {
+			"font-size": ["rem"],
+			"line-height": ["rem"],
+			"/^margin/": ["rem"],
+			"/^padding/": ["rem"]
+		},
+		"color-named": "never",
+		"color-hex-length": "long",
+		"color-no-invalid-hex": true,
+		"length-zero-no-unit": true
+	}
+}

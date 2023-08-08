@@ -1,0 +1,70 @@
+{
+	"compilerOptions": {
+		// Project Options
+		"target": "ESNext",
+		"jsx": "react-jsx",
+		"outDir": "dist",
+		"allowJs": true,
+		"declaration": true,
+		"noEmit": true,
+
+		// Strict Checks
+		"strict": true,
+
+		// Linter Checks
+		"allowUnreachableCode": false,
+		"noFallthroughCasesInSwitch": true,
+		"noUnusedParameters": true,
+		"noUnusedLocals": true,
+		"isolatedModules": true,
+		"allowUnusedLabels": false,
+		"noImplicitReturns": true,
+
+		// Source Maps
+		"sourceMap": true,
+
+		// Module Resolution
+		"baseUrl": "./",
+		"typeRoots": ["./node_modules/@types", "./src/@types/*"],
+		"paths": {
+			"@config": ["src/config"],
+			"@config/*": ["src/config/*"],
+			"@pages": ["src/pages"],
+			"@pages/*": ["src/pages/*"],
+			"@hooks": ["src/hooks"],
+			"@hooks/*": ["src/hooks/*"],
+			"@helpers": ["src/helpers"],
+			"@helpers/*": ["src/helpers/*"],
+			"@src/*": ["src/*"]
+		},
+		"moduleResolution": "Node",
+		"allowSyntheticDefaultImports": true,
+		"resolveJsonModule": true,
+		"allowUmdGlobalAccess": true,
+		"esModuleInterop": true,
+
+		// Advanced
+		"forceConsistentCasingInFileNames": true,
+		"preserveConstEnums": true,
+		"disableSizeLimit": true,
+		"lib": ["DOM", "ESNext"],
+		"skipLibCheck": true,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"module": "ESNext",
+		"pretty": true
+	},
+	"typeAcquisition": {
+		"enable": true,
+		"exclude": []
+	},
+	"compileOnSave": true,
+	"buildOnSave": false,
+	"exclude": ["dist", "node_modules"],
+	"ts-node": {
+		"files": true,
+		"compilerOptions": {
+			"module": "NodeNext"
+		}
+	}
+}
